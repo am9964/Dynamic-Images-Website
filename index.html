@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome Webpage Design</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="hero">
+    <div class="navbar">
+      <img src="images/logo.png" class="logo">
+      <div class="user">
+        <button type="button">Explore</button>
+        <img src="images/user.png"> 
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="info">
+        <h1>DISCOVER</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias omnis exercitationem ipsa<br> voluptate similique quibusdam nulla at, a quod, deserunt explicabo.</p>
+        <input type="text" placeholder="Search">
+      </div>
+    </div>
+
+    <div class="slider">
+      <img src="images/left-arrow.png" id="prev">
+      <div class="preview">
+        <img src="images/small1.png" alt="active thumbnail">
+        <img src="images/small2.png" alt="thumbnail">
+        <img src="images/small3.png" alt="thumbnail">
+        <img src="images/small4.png" alt="thumbnail">
+        <img src="images/small5.png" alt="thumbnail">
+      </div>
+      <img src="images/right-arrow.png" id="next">
+    </div>
+
+  </div>
+  <script>
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+    var thumbnail = document.getElementsByClassName("thumbnail");
+    var hero = document.getElementById("hero");
+
+    var backgroundImg = new Array(
+      "images/bg1.img",
+      "images/bg2.img",
+      "images/bg3.img",
+      "images/bg4.img",
+      "images/bg5.img",
+    
+    );
+    let i = 0;
+    next.onclick = function(){
+
+      if(i<4){
+        hero.style.backgroundImage = 'url("'+backgroundImg[i+1]+'")';
+        thumbnail[i+1].classList.add("active");
+        thumbnail[i].classList.remove("active");
+        i++;
+      }
+      
+    }
+    prev.onclick = function(){
+
+        if(i>0){
+          hero.style.backgroundImage = 'url("'+backgroundImg[i-1]+'")';
+          thumbnail[i-1].classList.add("active");
+          thumbnail[i].classList.remove("active");
+          i--;
+}
+
+}
+  </script>
+</body>
+</html>
